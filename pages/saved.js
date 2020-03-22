@@ -1,9 +1,13 @@
 import Layout from '../components/Layout.js';
+import Layout from '../components/Results.js';
 
 export default function Searched(){
 
 
-
+    state = {
+        results: [],
+        data: "Delete"
+      };
 
 
 
