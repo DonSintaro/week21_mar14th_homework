@@ -1,0 +1,132 @@
+.navHeader{
+    position: fixed;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:15px;
+    padding-top:15px;
+    width:100%;
+    border-bottom: solid black 4px;
+    background-color: rgb(246, 246, 246);
+    margin-bottom: 40px;
+    top:0;
+
+}
+.littleSpace{
+    height: 97px;
+
+}
+
+#navName{
+    display:inline-block;
+    margin-right: 25px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.navFunction{
+    display:inline-block;
+    margin-right: 25px;
+    margin-bottom: 0px;
+}
+
+.btn-light{
+    background-color: rgb(246, 246, 246);
+}
+
+a {
+    color:black;
+}
+
+a:hover {
+    color:black;
+    text-decoration:none;
+}
+
+.booksHeader{
+    text-align: center;
+    border: black solid 3px;
+    padding: 45px;
+    margin-bottom: 40px;
+}
+
+.subHeader{
+    margin-bottom:15px;
+    font-weight: bold;
+}
+
+.searchBarBox{
+    border: black solid 3px;
+    padding: 45px;
+    padding-bottom: 76px;
+    margin-bottom: 40px;
+}
+
+.submitSearch{
+    position: relative;
+    float: right;
+}
+
+.resultsBox{
+    border: black solid 3px;
+    padding: 45px;
+    margin-bottom: 40px;
+}
+
+.resultsFound{
+    border: black solid 3px;
+}
+
+.result{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid grey 2px;
+}
+
+.result:hover{
+    background-color: rgb(255, 253, 235);
+}
+
+.result:first-child{
+    
+}
+
+.result:last-child{
+    
+    border-bottom: none;
+}
+
+.resultFunctions{
+    float:right;
+    
+}
+
+.resultFunctionBtns{
+    box-shadow: grey 5px 5px 5px;
+}
+
+.seperator{
+    border-bottom: solid grey 1.5px;
+}
+
+.containIt{
+    margin:0;
+    margin-top:10px;
+    padding:0;
+}
+
+.aboutInfo{
+
+}
+
+.imageBox{
+    margin-right:25px;
+    margin-bottom:15px;
+    float:left;
+}
+
+ul {
+    list-style-type: none;
+    padding:0px;
+}
+
+/*# sourceMappingURL=styles.chunk.css.map*/

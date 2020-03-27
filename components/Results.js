@@ -1,41 +1,67 @@
-function Results(props){
 
+function ResultsList(props){
 
+    const handleAuthors = (value) => {
 
-props.results.map(function(item){
-    return (
-        <li class=" container result" key={item.id}>
-            <div>
-                <div class="resultFunctions">
-                    <button type="button" class="btn btn-light navFunction resultFunctionBtns"><a href={item.volumeInfo.canonicalVolumeLink}target="_blank" rel="noopener noreferrer">View</a></button >
-                    <button type="button" class="btn btn-light navFunction resultFunctionBtns" id="functionBtn">{props.data}</button >
+        if (value){ 
+            return value.map(function(a, i){
+                if(value.length > 1 && i < value.length-1){return (a + ", ")}
+                else { return a}
 
-                </div>
-    <h4>{item.volumeInfo.title}</h4>
-                
-            </div>
+            });
+        }
+        else {
+            return ("*No Author Known*");
+        }
+    
+    }
 
-            <h5>{item.volumeInfo.subtitle}</h5>
-    <h6><span>Written by: </span>{item.volumeInfo.authors.map(function(a){return (a + " ")})}</h6>
-            <div class="container seperator"></div>
-            <div class="container containIt">
-                <div class="imageBox">
-                    <img class="bookImage" src={item.volumeInfo.imageLinks.thumbnail} alt="Image of book" />
-                </div>
+return ( 
 
-    <p class="aboutInfo"> {item.volumeInfo.description} </p>
+    <div className="container resultsBox">
+    <ul>
 
-                <div style="clear:both;"></div>
+        {props.results.map(function(item){
+            return (
+                <li className=" container result" key={item.id}>
+                    <div>
+                        <div className="resultFunctions">
+                            <button type="button" className="btn btn-light navFunction resultFunctionBtns"><a href={item.volumeInfo.canonicalVolumeLink}target="_blank" rel="noopener noreferrer">View</a></button >
 
-            </div>
+                            <button type="button" className="btn btn-light navFunction resultFunctionBtns" >{props.type} </button >
 
-        </li>
-        )
+                        </div>
 
-})
+                        {/* onClick={handleFunction} */}
+                        
+                    </div>
 
+                    <h4>{item.volumeInfo.title}</h4>
 
+                    <h5>{item.volumeInfo.subtitle}</h5>
+                    <h6><span>Written by: </span>{handleAuthors(item.volumeInfo.authors)}</h6>
+                    <div className="container seperator"></div>
+                    <div className="container containIt">
+                        <div className="imageBox">
+                            <img className="bookImage" src={item.volumeInfo.imageLinks.thumbnail} alt="Image of book" />
+                        </div>
+
+                        <p className="aboutInfo"> {item.volumeInfo.description} </p>
+
+                        <div style={{clear:"both"}}></div>
+
+                    </div>
+
+                </li>
+            )
+
+        })}
+
+    </ul>
+    </div>
+
+)
 
 
 }
-export default Results;
+export default ResultsList;
