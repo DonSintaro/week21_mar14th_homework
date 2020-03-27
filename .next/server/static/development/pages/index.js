@@ -347,19 +347,23 @@ function ResultsList(props) {
     }
   };
 
+  const handleFunction = value => {
+    console.log(value); //Just need to assign if/else for props.type save/delete => make mongo and express connection
+  };
+
   return __jsx("div", {
     className: "container resultsBox",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 31,
       columnNumber: 5
     }
   }, __jsx("ul", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 32,
       columnNumber: 5
     }
   }, props.results.map(function (item) {
@@ -369,14 +373,14 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
+        lineNumber: 36,
         columnNumber: 17
       }
     }, __jsx("div", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
+        lineNumber: 37,
         columnNumber: 21
       }
     }, __jsx("div", {
@@ -384,7 +388,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28,
+        lineNumber: 38,
         columnNumber: 25
       }
     }, __jsx("button", {
@@ -393,7 +397,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29,
+        lineNumber: 39,
         columnNumber: 29
       }
     }, __jsx("a", {
@@ -403,44 +407,57 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29,
+        lineNumber: 39,
         columnNumber: 108
       }
     }, "View")), __jsx("button", {
       type: "button",
       className: "btn btn-light navFunction resultFunctionBtns",
+      onClick: () => handleFunction({
+        id: item.id,
+        volumeInfo: {
+          canonicalVolumeLink: item.volumeInfo.canonicalVolumeLink,
+          title: item.volumeInfo.title,
+          subtitle: item.volumeInfo.subtitle,
+          authors: item.volumeInfo.authors,
+          imageLinks: {
+            thumbnail: item.volumeInfo.imageLinks.thumbnail
+          },
+          description: item.volumeInfo.description
+        }
+      }),
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31,
+        lineNumber: 41,
         columnNumber: 29
       }
     }, props.type, " "))), __jsx("h4", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39,
+        lineNumber: 59,
         columnNumber: 21
       }
     }, item.volumeInfo.title), __jsx("h5", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 61,
         columnNumber: 21
       }
     }, item.volumeInfo.subtitle), __jsx("h6", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42,
+        lineNumber: 62,
         columnNumber: 21
       }
     }, __jsx("span", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42,
+        lineNumber: 62,
         columnNumber: 25
       }
     }, "Written by: "), handleAuthors(item.volumeInfo.authors)), __jsx("div", {
@@ -448,7 +465,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 63,
         columnNumber: 21
       }
     }), __jsx("div", {
@@ -456,7 +473,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 64,
         columnNumber: 21
       }
     }, __jsx("div", {
@@ -464,7 +481,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45,
+        lineNumber: 65,
         columnNumber: 25
       }
     }, __jsx("img", {
@@ -474,7 +491,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46,
+        lineNumber: 66,
         columnNumber: 29
       }
     })), __jsx("p", {
@@ -482,7 +499,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49,
+        lineNumber: 69,
         columnNumber: 25
       }
     }, " ", item.volumeInfo.description, " "), __jsx("div", {
@@ -492,7 +509,7 @@ function ResultsList(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 71,
         columnNumber: 25
       }
     })));

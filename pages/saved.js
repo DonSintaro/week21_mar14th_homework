@@ -14,18 +14,18 @@ export default function Saved(){
 
     
         
-    <div className="container resultsBox">
+            <div className="container resultsBox">
 
-        <h4 className="subHeader">Results</h4>
+                <h4 className="subHeader">Results</h4>
 
-        <ul className="resultsFound">
+                <ul className="resultsFound">
 
-            
+                    
 
 
-        </ul>
+                </ul>
 
-    </div>
+            </div>
 
 
 
