@@ -16,7 +16,7 @@ app.prepare().then(() => {
   const server = express();
 
   mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/googlebooksaves"
+    process.env.MONGODB_URI || "mongodb://localhost/googlebooksaves", { useNewUrlParser: true }
   );
 
     server.use(bodyParser.json()); // <--- Here
