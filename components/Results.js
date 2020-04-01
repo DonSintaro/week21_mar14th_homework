@@ -17,31 +17,27 @@ function ResultsList(props){
         }
     }
 
-
-
     const handleFunction = (value) => {
-
-        console.log(value);
-
-        
 
         if(props.type === "Save"){
             API.saveBook(value)
         }
         else if(props.type === "Delete"){
-            API.deleteBook(value).then(function(){updateList()})
+            API.deleteBook(value.id).then(function(){props.updateList()})
 
         }
         else{"Some Error happened"}
 
-
-
     }
 
-    console.log(props.results)
+    const hereOrNot = (item) => {
+        if(item && item.volumeInfo && item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail){
+            return item.volumeInfo.imageLinks.thumbnail;
+        }
+    }
 
+    
 
-   
 return ( 
 
     <div className="container resultsBox">
@@ -79,7 +75,7 @@ return (
                     <div className="container seperator"></div>
                     <div className="container containIt">
                         <div className="imageBox">
-                            <img className="bookImage" src={item.volumeInfo.imageLinks.thumbnail} alt="Image of book" />
+                            <img className="bookImage" src={hereOrNot(item)} alt="Image of book" />
                         </div>
 
                         <p className="aboutInfo"> {item.volumeInfo.description} </p>

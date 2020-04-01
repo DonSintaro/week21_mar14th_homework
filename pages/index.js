@@ -40,7 +40,7 @@ export default function Searched(){
 
         <div className="container searchBarBox">
     
-            <h4 className="subHeader">Book Search</h4>
+            <h4 className="subHeader">Search Results</h4>
     
             <form>
     

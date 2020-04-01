@@ -6,22 +6,23 @@ const books = require("./controller.js");
 router.get("/api/saved", function(req, res){
     books.readBooks()
     .then(function(data){
-        console.log(data);
         res.send(data);
     })
-
-    .catch(function(){
-        res.send(undefined)
+    .catch(function(err){
+        res.status(500).send(err)
     });
 });
 
 router.post("/api/save", async function({body}, res) {
     
     await books.saveBook(body);
+    res.send("success");
 });
 
-router.delete("/api/workouts/:id", async function({params, body}, res){
-    await books.deleteBook(params,body);
+router.delete("/api/books/:id", async function({params, body}, res){
+    
+    let data = await books.deleteBook(params,body)
+    res.send(data);
 });
 
 ///////////////////////////////////////////////////////

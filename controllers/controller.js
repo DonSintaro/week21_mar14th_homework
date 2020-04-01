@@ -2,9 +2,7 @@ const Books = require("../models/books.js");
 
 
 async function saveBook(item){
-    console.log(item)
-
-
+    
     let savedBook = await new Books(
         {
         id: item.id,
@@ -21,7 +19,9 @@ async function saveBook(item){
 }
 
 async function deleteBook(params){
-    await Workout.findOneAndDelete({_id:params.id});
+    
+    await Books.findOneAndDelete({id:params.id});
+    return "success delete on mongo";
 }
 
 async function readBooks(){

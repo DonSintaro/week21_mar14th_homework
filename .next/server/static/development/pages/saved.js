@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -349,20 +349,23 @@ function ResultsList(props) {
   };
 
   const handleFunction = value => {
-    console.log(value);
-
     if (props.type === "Save") {
       _utils_API_js__WEBPACK_IMPORTED_MODULE_1__["default"].saveBook(value);
     } else if (props.type === "Delete") {
-      _utils_API_js__WEBPACK_IMPORTED_MODULE_1__["default"].deleteBook(value).then(function () {
-        updateList();
+      _utils_API_js__WEBPACK_IMPORTED_MODULE_1__["default"].deleteBook(value.id).then(function () {
+        props.updateList();
       });
     } else {
       "Some Error happened";
     }
   };
 
-  console.log(props.results);
+  const hereOrNot = item => {
+    if (item && item.volumeInfo && item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail) {
+      return item.volumeInfo.imageLinks.thumbnail;
+    }
+  };
+
   return __jsx("div", {
     className: "container resultsBox"
   }, __jsx("ul", null, props.results.map(function (item) {
@@ -402,7 +405,7 @@ function ResultsList(props) {
       className: "imageBox"
     }, __jsx("img", {
       className: "bookImage",
-      src: item.volumeInfo.imageLinks.thumbnail,
+      src: hereOrNot(item),
       alt: "Image of book"
     })), __jsx("p", {
       className: "aboutInfo"
@@ -422,12 +425,13 @@ function ResultsList(props) {
 /*!************************!*\
   !*** ./pages/saved.js ***!
   \************************/
-/*! exports provided: default */
+/*! exports provided: default, getServerSideProps */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Saved; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return getServerSideProps; });
 /* harmony import */ var _components_Layout_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Layout.js */ "./components/Layout.js");
 /* harmony import */ var _components_Results_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Results.js */ "./components/Results.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
@@ -438,34 +442,43 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
-function Saved() {
-  const {
-    0: results,
-    1: setResults
-  } = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]);
+function Saved({
+  resultsa
+}) {
   const {
     0: type,
     1: setType
   } = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])("Delete");
+  const {
+    0: results,
+    1: setResults
+  } = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(resultsa);
 
-  const updateList = () => {
-    console.log("Got to update list thing");
-    _utils_API_js__WEBPACK_IMPORTED_MODULE_3__["default"].getBooks().then(function (data) {
-      setResults([data]);
-      console.log(results);
-    });
+  const updateList = async () => {
+    const res = await _utils_API_js__WEBPACK_IMPORTED_MODULE_3__["default"].getBooks();
+    setResults(res.data);
   };
 
-  updateList();
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(_components_Layout_js__WEBPACK_IMPORTED_MODULE_0__["default"], null, __jsx("div", {
+  return __jsx("div", null, __jsx(_components_Layout_js__WEBPACK_IMPORTED_MODULE_0__["default"], null, __jsx("div", {
     className: "container resultsBox"
   }, __jsx("h4", {
     className: "subHeader"
-  }, "Results"), __jsx(_components_Results_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    results: results,
+  }, "Saved Results"), __jsx(_components_Results_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
     type: type,
-    updateList: updateList()
+    results: results,
+    updateList: updateList
   }))));
+}
+async function getServerSideProps() {
+  const res = await _utils_API_js__WEBPACK_IMPORTED_MODULE_3__["default"].getBooks(); //const data = await setResults([res]);
+
+  const resultsa = res.data; // Pass data to the page via props
+
+  return {
+    props: {
+      resultsa
+    }
+  };
 }
 
 /***/ }),
@@ -499,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/saved.js ***!
   \******************************/
