@@ -14,12 +14,6 @@ export default function Searched(){
 
 
 
-    const handleFunction = (event) => {
-
-
-    }
-
-
     
     const searchBooks = async () => {
         const result = await axios.get('https://www.googleapis.com/books/v1/volumes?q=$' + searched);

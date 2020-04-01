@@ -1,5 +1,8 @@
+import API from "../utils/API.js";
+
 
 function ResultsList(props){
+
 
     const handleAuthors = (value) => {
 
@@ -18,11 +21,24 @@ function ResultsList(props){
 
     const handleFunction = (value) => {
 
-
         console.log(value);
-        //Just need to assign if/else for props.type save/delete => make mongo and express connection
+
+        
+
+        if(props.type === "Save"){
+            API.saveBook(value)
+        }
+        else if(props.type === "Delete"){
+            API.deleteBook(value).then(function(){updateList()})
+
+        }
+        else{"Some Error happened"}
+
+
 
     }
+
+    console.log(props.results)
 
 
    
