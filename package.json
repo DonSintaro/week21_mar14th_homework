@@ -2,7 +2,7 @@
   "name": "week21_mar14th_homework",
   "version": "1.0.0",
   "description": "This app will search and save books using google book search api and mongo to save.",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.2",
