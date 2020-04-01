@@ -6742,7 +6742,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CEveryday%5CDesktop%5CGitHubPublic%5Cutbootcamp%5CHomework%5Cweek21_mar14th_homework%5Cpages%5Cindex.js ***!
   \**************************************************************************************************************************************************************************************/
@@ -6765,5 +6765,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
