@@ -15,11 +15,7 @@ const [results, setResults] = useState(resultsa);
     const updateList = async () =>{
         const res = await API.getBooks();
         setResults(res.data);
-
     }
-    
-
-
     return (
     
         <div>
@@ -27,8 +23,6 @@ const [results, setResults] = useState(resultsa);
 
         <Layout>
 
-    
-        
             <div className="container resultsBox">
 
                 <h4 className="subHeader">Saved Results</h4>
@@ -38,13 +32,10 @@ const [results, setResults] = useState(resultsa);
                     results = {results}
                     updateList = {updateList}
                 />
-
-                
+    
             </div>
 
         </Layout>
-
-
     
         </div>
     
