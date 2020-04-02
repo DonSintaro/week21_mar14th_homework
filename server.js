@@ -40,7 +40,6 @@ app.prepare().then(() => {
   })
 
   server.listen(port, err => {
-    console.log(port + " This is port")
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
