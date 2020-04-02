@@ -32,6 +32,7 @@ app.prepare().then(() => {
   })
 
   server.get('/saved', (req, res) => {
+    console.log("server.get hit");
     return app.render(req, res, '/saved', req.query)
   })
 
