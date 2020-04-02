@@ -1,6 +1,11 @@
 import Link from 'next/link';
 
 export default function Layout(props){
+
+    
+
+
+
     return <>
     <div className="navHeader">
         <div id="navName"><span style={{color:"blue"}}>G</span><span style={{color:"red"}}>o</span><span style={{color:"#ffeb00"}}>o</span><span style={{color:"blue"}}>g</span><span style={{color:"green"}}>l</span><span style={{color:"red"}}>e</span> Books</div>
