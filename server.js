@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require('body-parser')
 
 
-const port = process.env.PORT || 80
+const port =  80 //process.env.PORT || 80
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
