@@ -25,6 +25,9 @@ router.delete("/api/books/:id", async function({params, body}, res){
     res.send(data);
 });
 
+router.get("/test", async function(req,res){return await res.send("success")})
+
+
 ///////////////////////////////////////////////////////
 
 module.exports = router;
