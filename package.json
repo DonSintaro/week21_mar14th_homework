@@ -18,6 +18,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "prestart": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
