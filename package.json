@@ -1,5 +1,5 @@
 {"engines": {
-  "node": ">=10.16.0",
+  "node": ">=10.0.0",
   "npm": ">=6.0.0"
 },
   "name": "week21_mar14th_homework",
