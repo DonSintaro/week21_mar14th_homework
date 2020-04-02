@@ -1,7 +1,8 @@
-{"engines": {
-  "node": ">=10.0.0",
-  "npm": ">=6.0.0"
-},
+{
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "name": "week21_mar14th_homework",
   "version": "1.0.0",
   "description": "This app will search and save books using google book search api and mongo to save.",
