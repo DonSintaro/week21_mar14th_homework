@@ -2,6 +2,9 @@ import Layout from '../components/Layout.js';
 import Results from '../components/Results.js';
 import React, { useState } from "react";
 import API from "../utils/API.js";
+import fetch from 'isomorphic-unfetch';
+import mongoose from 'mongoose';
+
 
 
 export default function Saved({resultsa}){
@@ -44,10 +47,6 @@ const [results, setResults] = useState(resultsa);
 }
 
 export async function getServerSideProps() {
-
-    const res = await API.getBooks();
-    //const data = await setResults([res]);
-    const resultsa = res.data;
-    // Pass data to the page via props
+    const resultsa = JSON.parse(JSON.stringify(await mongoose.models.Books.find({})))
     return { props: { resultsa } }
   }

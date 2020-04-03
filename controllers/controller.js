@@ -25,6 +25,7 @@ async function deleteBook(params){
 }
 
 async function readBooks(){
+    console.log("got to readBooks controller")
     return await Books.find({});
 }
 

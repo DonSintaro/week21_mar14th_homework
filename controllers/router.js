@@ -4,8 +4,10 @@ const books = require("./controller.js");
 
 
 router.get("/api/saved", function(req, res){
+    console.log("got to router saved");
     books.readBooks()
     .then(function(data){
+        console.log("got to .then for data send of getbooks")
         res.send(data);
     })
     .catch(function(err){
@@ -24,8 +26,6 @@ router.delete("/api/books/:id", async function({params, body}, res){
     let data = await books.deleteBook(params,body)
     res.send(data);
 });
-
-router.get("/test", async function(req,res){return await res.send("success")})
 
 
 ///////////////////////////////////////////////////////
